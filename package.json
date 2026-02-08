@@ -6,7 +6,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "puppeteer": "^21.3.8",
-    "haxball-headless": "^1.0.7"
+    "puppeteer": "^21.3.8"
   }
 }
