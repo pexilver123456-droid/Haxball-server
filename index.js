@@ -1,11 +1,13 @@
-{
-  "name": "haxball-server",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "puppeteer": "^21.3.8"
-  }
-}
+const puppeteer = require('puppeteer');
+
+(async () => {
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+  const page = await browser.newPage();
+  await page.goto('https://www.haxball.com/headless', { waitUntil: 'networkidle2' });
+
+  // Możesz ustawić prosty komunikat w logach
+  console.log('Serwer HaxBall 24/7 uruchomiony! Otwórz w przeglądarce https://www.haxball.com/play?c=XXXXX');
+})();
